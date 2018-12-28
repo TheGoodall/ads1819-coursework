@@ -43,4 +43,4 @@ def count_ephemeral(n1, n2, k):
             count += 1
     return count
     
-print(count_ephemeral(1, 10000000, 4))
+print(count_ephemeral(1, 100000, 4))
