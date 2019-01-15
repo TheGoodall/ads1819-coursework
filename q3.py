@@ -67,7 +67,7 @@ def testq3():
     assert not good_expression("((1+2))*3+4") 
     assert good_expression("1+2*3+4") 
     assert not good_expression("1+(2*3)+4") 
-    assert good_expression("1*2+3+4") 
+    assert good_expression("1*2+3+4")  
     assert not good_expression("1*2+(3+4)") 
     print ("all tests passed")
     

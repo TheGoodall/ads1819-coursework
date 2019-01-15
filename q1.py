@@ -6,7 +6,7 @@ def hash_quadratic(data_input):
         if data in table:
             continue
         i = ((6*data) + 3) % 19
-	io = i
+        io = i
         count = 0
         found_space = True
         while table[i] != "-":

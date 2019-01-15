@@ -38,9 +38,9 @@ def count_ephemeral(n1, n2, k):
                 visited.add(n)
                 n = k_child(n)
                 continue
-    for i in range(n1, n2):      
+    for i in range(n1, n2):
         if determine_type(i) == True:
             count += 1
     return count
     
-print(count_ephemeral(1, 100000, 4))
+print(count_ephemeral(1, 10000000, 4))
