@@ -1,65 +1,69 @@
-#q3.py
-#algorithms and data structures assignment 2018-19 question 3
-#matthew johnson 21 november 2018
 
-#####################################################
+def good_expression(expression):
 
-"""See adspractical4.py for further explanations of the usage of stacks
-and queues."""
-
-#####################################################
-
-class Node:
-    def __init__(self, data, before=None, after=None):
-        self.data = data
-        self.before = before
-        self.after = after
-
-########
-#STACKS#
-########
-
-class Stack:
-    def __init__(self):
-        self.head = None
-    def isEmpty(self):
-        return self.head == None
-    def pop(self):
-        output = self.head.data
-        self.head = self.head.before
-        return output
-    def push(self, data):
-        self.head = Node(data, self.head)
-    def top(self):
-        return self.head.data
-
-########
-#QUEUES#
-########
-
-class Queue:
-    def __init__(self):
-        self.front = None
-        self.rear = None
-    def isEmpty(self):
-        return self.front == None
-    def dequeue(self):
-        output = self.front.data
-        self.front = self.front.after
-        if self.front == None:
-            self.rear = None
-        return output
-    def enqueue(self, data):
-        if self.rear == None:
-            self.front = Node(data)
-            self.rear = self.front
-        else:
-            self.rear.after = Node(data, self.rear)
-            self.rear = self.rear.after
+    class pair():
+        def __init__(self):
+            self.left_op = 0
+            self.right_op = 0
+            self.min_op = 0
     
-#####################################################
+    stack = [pair()]
+
+    queue = []
+
+    priority = {"+":1, "*":2}
+
+
+    
+
+
+    
+
+    for index, char in enumerate(expression):
+        if char in [str(i) for i in range(10)]:
+            pass
+
+        elif char == "+" or char == "*":
+            value = priority[char]
+            if stack[-1].min_op == 0:
+                stack[-1].min_op = value
+            elif value < stack[-1].min_op:
+                stack[-1].min_op = value
+            
+        elif char == "(":
+            stack.append(pair())
+            if index-1 >= 0:
+                stack[-1].left_op = priority.get(expression[index-1], 0) 
+
+            
+        elif char == ")":
+            p = stack.pop()
+            if index+1 < len(expression):
+                p.right_op = priority.get(expression[index+1], 0) # returns value or 0
+            
+            # at this point p has been generated and is a pair of brackets with a left_op, min_op and right_op
+            
+            if p.left_op == 0 and p.right_op == 0:
+                return False
+            if p.min_op == 0:
+                return False
+            if not (p.min_op < p.left_op or p.min_op < p.right_op):
+                return False
+
+
+    return True
+
+
             
 
+
+            
+
+
+
+
+
+#####################################################
 def testq3():
     assert good_expression("1+2+3+4") 
     assert not good_expression("(1+2+3+4)") 
@@ -69,7 +73,34 @@ def testq3():
     assert not good_expression("1+(2*3)+4") 
     assert good_expression("1*2+3+4")  
     assert not good_expression("1*2+(3+4)") 
-    print ("all tests passed")
+    print ("all original tests passed")
     
 #####################################################
-
+    assert good_expression('1*(2+3)+4')  # Good expression
+    assert not good_expression('1+(2+3)+4')  # Bad expression
+    assert not good_expression('1+(2*3)+4')  # Bad expression
+    assert not good_expression("1*2+(3+4)")  # Bad expression
+    assert not good_expression('((1+2))*3+4')  # Bad expression
+    assert not good_expression('(1+2+3+4)')  # Bad expression
+    assert good_expression('1+2+3+4')  # Good expression
+    assert not good_expression('((2+3)*3)*6')  # Bad expression
+    assert good_expression('3+(4+5)*(6+7)')  # Good expression
+    assert good_expression('3*(4+5)*(6+7)')  # Good expression
+    assert not good_expression('3+(4+5)+(6+7)')  # Bad expression
+    assert not good_expression('1*(2*3)*(4*5)')  # Bad expression
+    assert not good_expression('(1+((2*3)*4)+5)+(6)*7*8+9)')  # Bad expression
+    assert not good_expression('1+(2+(2+(4+2)*(4*4+2))*5)')  # Bad expression
+    assert not good_expression('(2)*2')  # Bad expression
+    assert good_expression("1+2+3+4")  # Good expression
+    assert not good_expression("(1+2+3+4)")  # Bad expression
+    assert good_expression("(1+2)*3+4")  # Good expression
+    assert not good_expression("((1+2))*3+4")  # Bad expression
+    assert good_expression("1+2*3+4")  # Good expression
+    assert not good_expression("1+(2*3)+4")  # Bad expression
+    assert good_expression("1*2+3+4")  # Good expression
+    assert not good_expression("1*2+(3+4)")  # Bad expression
+    assert not good_expression('1+(2*(3+(4*(5+(6*(7+(8*(9+(9+1)))))))))')  # Bad expression
+    assert good_expression('1*(2+3)*(4+5)*(6+7)')  # Bad expression
+    assert not good_expression('1*(2*3)')  # Bad expression
+    print('All new tests passed!!')
+testq3()
