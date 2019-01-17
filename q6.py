@@ -34,4 +34,3 @@ def hybridsort(data):
         return mergesort(data)
     else:
         return selectionsort(data)
-
