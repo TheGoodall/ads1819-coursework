@@ -42,5 +42,3 @@ def count_ephemeral(n1, n2, k):
         if determine_type(i) == True:
             count += 1
     return count
-    
-print(count_ephemeral(1, 10000000, 4))
