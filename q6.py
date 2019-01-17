@@ -2,7 +2,7 @@ def hybridsort(data):
     def merge(data1, data2):
         output = []
         while data1 and data2:
-            if data1[0] > data2[0]:
+            if data1[0] < data2[0]:
                 output.append(data2.pop(0))
             else:
                 output.append(data1.pop(0))
@@ -23,11 +23,11 @@ def hybridsort(data):
     def selectionsort(data):
         output = []
         while data:
-            smallest = [data[0], 0]
+            largest = [data[0], 0]
             for i, item in enumerate(data):
-                if item < smallest[0]:
-                    smallest = [item, i]
-            output.append(data.pop(smallest[1]))
+                if item > largest[0]:
+                    largest = [item, i]
+            output.append(data.pop(largest[1]))
         return output
 
     if len(data) > 4:
@@ -35,4 +35,3 @@ def hybridsort(data):
     else:
         return selectionsort(data)
 
-print(hybridsort([4,6,2,7,5,34,2,2,3,5]))
