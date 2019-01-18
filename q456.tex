@@ -13,10 +13,10 @@
     \subsection{}
 
 False
-
-\[2x^4 \le c(x^3+3x+2)\]
-\[2x \le c+c(\frac{3}{x^2}+\frac{2}{x^3})\]
-\[2x- c(\frac{3}{x^2}+\frac{2}{x^3}) \le c\]
+\\
+\(2x^4 \le c(x^3+3x+2)\) \\
+\(2x \le c+c(\frac{3}{x^2}+\frac{2}{x^3})\) \\
+\(2x- c(\frac{3}{x^2}+\frac{2}{x^3}) \le c\) \\
 as x \(\to \infty\), left side \(\to \infty\) but right side is constant
 
 \(2x^4\) grows faster than \(x^3+3x+2\)
@@ -25,6 +25,49 @@ as x \(\to \infty\), left side \(\to \infty\) but right side is constant
 
 True
 
+\(4x^3+2x^2 \times \log{x} + 1 < 4x^3+2x^3+x^3 < 7x^3\) \\
+(as \(log{x} < x\), \(2x^2 \times \log{x} < 2x^3\)) \\
+hence:
+\(4x^3+2x^2 \times \log{x} + 1 < cx^3\) when \(c = 7\) and \(x >  5\)
+
+    \subsection{}
+False
+
+\(3x^2 + 7x + 1\) is \(\omega(x\log{x})\) if \(x\log{x}\) is \(o(3x^2 + 7x + 1)\)
+
+and \(x^2\) grows faster than \(x\log{x}\)
+
+    \subsection{}
+
+True
+
+\(x^2 +4x\) is \(\Omega(x\log{x})\) if \(x\log{x}\) is \(O(x^2+4x)\)
+
+\(x\log{x}\) grows more slowly than \(x^2\) therefore True when C =1 and k = 10
+
+    \subsection{}
+
+False
+
+\(f(x)+g(x)\) is not \(\Omega(f(x)\times g(x))\)
+
+\section{5.}
+
+    \subsection{}
+
+\(log_3{9} = 2\)\\
+\(T(n) \) is \( \Theta(n^2\log{n})\)
+
+    \subsection{}
+
+\(\log_2{4} = 2\)\\
+\(T(n)\) is \(\Theta (n^2)\)
+
+    \subsection{}
+
+Master theorem cannot be applied as a is not a constant.
+
+    \subsection{}
 
 
 \end{document}
