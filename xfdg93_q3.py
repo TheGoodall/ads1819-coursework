@@ -102,5 +102,6 @@ def testq3():
     assert not good_expression('1+(2*(3+(4*(5+(6*(7+(8*(9+(9+1)))))))))')  # Bad expression
     assert good_expression('1*(2+3)*(4+5)*(6+7)')  # Bad expression
     assert not good_expression('1*(2*3)')  # Bad expression
+    assert good_expression("1+(2+3)*(4+5)")
     print('All new tests passed!!')
 testq3()

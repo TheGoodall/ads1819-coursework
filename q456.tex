@@ -56,11 +56,13 @@ False
     \subsection{}
 
 \(log_3{9} = 2\)\\
+1\textsuperscript{st} option
 \(T(n) \) is \( \Theta(n^2\log{n})\)
 
     \subsection{}
 
 \(\log_2{4} = 2\)\\
+2\textsuperscript{nd} option
 \(T(n)\) is \(\Theta (n^2)\)
 
     \subsection{}
@@ -68,6 +70,31 @@ False
 Master theorem cannot be applied as a is not a constant.
 
     \subsection{}
+
+\(log_3{3} = 1\)\\
+3\textsuperscript{rd} option
+
+\(3(\frac{n}{3}) \le cn \)
+
+True for \(c > 3\)
+
+
+
+\(T(n) = \Theta(n)\)
+
+\subsection{}
+cannot be applied as \(a < 1\)
+
+\section{6.}
+b.
+
+Selectionsort does not have a best and worst case, it always checks every number, the merge function is the important one, it is worst case when the lists contain alternate numbers
+
+e.g.\\
+8,6,4,2\\7,5,3,1
+
+so for \(n=8\), the worst case would be 8,6,4,2,7,5,3,1\\
+and for \(n=16\) the worst case would be 16,12,8,4,14,10,6,2,15,11,7,3,13,9,5,1 because after each merge, the next lists being merged will still have alternating numbers.
 
 
 \end{document}
